@@ -45,7 +45,7 @@
       - pcsc-tools
 
   - name: Install System76 Packages (bonw14)
-    shell: "yes 'y' | paru -S --skipreview {{ item }}"
+    shell: "yes 'y' | paru -S --skipreview {{ item }} 2>&1"
     with_items:
     #- "{{ pkgList | join(' ') }}"
     #- "{{ sys76List | join(' ') }}"
