@@ -34,6 +34,7 @@
       - firmware-manager
       - fish-git
       - flameshot
+      - gnome-shell-extensions
       - gnome-tweaks
       - guake
       - htop
