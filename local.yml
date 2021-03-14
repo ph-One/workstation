@@ -35,6 +35,9 @@
       - firmware-manager
       - fish-git
       - flameshot
+      - gnome-backgrounds
+      - gnome-backgrounds-bitday-git
+      - gnome-backgrounds-lakeside-git
       - gnome-shell-extensions
       - gnome-tweaks
       - guake
