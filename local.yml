@@ -2,7 +2,7 @@
 - hosts: localhost
   become: true
   tasks:
-  - name: Install Paru
+  - name: Install Paru Package Manager
     package:
       name: paru
       state: present
