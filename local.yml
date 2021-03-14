@@ -11,6 +11,9 @@
     package:
       name: base-devel
       state: present
+  
+  - name: Update System Packages
+    shell: "paru -Syyu"
 
   - name: Generate Package List
     set_fact:
