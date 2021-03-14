@@ -40,8 +40,8 @@
       - pcsc-tools
 
   - name: Install System76 Packages (bonw14)
-    shell: "yes 'y' | paru -S --skipreview {{ item }}"
+    shell: "yes 'y' | paru -S --skipreview {{ item | join(' ') }}"
     with_items:
-    - "{{ pkgList | join(' ') }}"
-    - "{{ sys76List | join(' ') }}"
-    - "{{ smartCardReaderList | join(' ') }}"
+    - "{{ pkgList }}"
+    - "{{ sys76List }}"
+    - "{{ smartCardReaderList }}"
