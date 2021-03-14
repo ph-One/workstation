@@ -2,10 +2,10 @@
 - hosts: localhost
   become: true
   tasks:
-  - name: Install Paru Package Manager
-    package:
-      name: paru
-      state: present
+#   - name: Install Paru Package Manager
+#     package:
+#       name: paru
+#       state: present
     
   - name: Install Packages
     shell: "yes 'y' | paru -S --skipreview {{ item }}"
