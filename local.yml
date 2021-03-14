@@ -5,7 +5,7 @@
   
   - name: Setup Log File
     ansible.builtin.file:
-      path: /mp/install.log
+      path: /tmp/install.log
       state: touch
       owner: kmatheny
       group: kmatheny
