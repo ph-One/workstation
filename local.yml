@@ -23,7 +23,7 @@
     - kubectl
     - visual-studio-code-insiders-bin
     - esanso-bin
-  - name: Install SYstem76 Packages (bonw14)
+  - name: Install System76 Packages (bonw14)
     shell: "yes 'y' | paru -S --skipreview {{ item }}"
     with_items:
     - sys76-kb
