@@ -2,38 +2,43 @@
 - hosts: localhost
   become: yes
   tasks:
+
   - name: Install Paru Package Manager
     package:
       name: paru
       state: present
-  - name: Install Core Packages
-    shell: "yes 'y' | paru -S --skipreview {{ item }}"
-    with_items:
-    - tmux
-    - zsh
-    - joplin-desktop
-    - vivaldi
-    - fish-git
-    - guake
-    - nvidia
-    - podman
-    - cowsay
-    - firmware-manager
-    - libfirmware-manager
-    - kubectl
-    - visual-studio-code-insiders-bin
-    - esanso-bin
+
+  - name: Generate Package List
+    set_fact:
+      pkgList:
+      - tmux
+      - zsh
+      - joplin-desktop
+      - vivaldi
+      - fish-git
+      - guake
+      - nvidia
+      - podman
+      - cowsay
+      - firmware-manager
+      - libfirmware-manager
+      - kubectl
+      - visual-studio-code-insiders-bin
+      - esanso-bin
+      sys76List:
+      - sys76-kb
+      - system76-apci-dkms
+      - system76-dkms
+      - system76-driver
+      - system76-firmware-daemon
+      smartCardReaderList:
+      - opensc
+      - icaclient
+      - pcsc-tools
+
   - name: Install System76 Packages (bonw14)
-    shell: "yes 'y' | paru -S --skipreview {{ item }}"
+    shell: "yes 'y' | paru -S --skipreview {{ item | join(' ') }}"
     with_items:
-    - sys76-kb
-    - system76-apci-dkms
-    - system76-dkms
-    - system76-driver
-    - system76-firmware-daemon
-  - name: Install SmartCard Reader Packages
-    shell: "yes 'y' | paru -S --skipreview {{ item }}"
-    with_items:
-    - opensc
-    - icaclient
-    - pcsc-tools
+    - pkgList
+    - sys76List
+    - smartCardReaderList
