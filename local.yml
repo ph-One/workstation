@@ -118,9 +118,9 @@
 #       enabled: yes
 #       name: system76
 
-  - name: Start and Enable System76 Firmware Deamin Service
-    become: yes
-    ansible.builtin.systemd:
-      state: started
-      enabled: yes
-      name: system76-firmware-daemon.service
+#   - name: Start and Enable System76 Firmware Deamin Service
+#     become: yes
+#     ansible.builtin.systemd:
+#       state: started
+#       enabled: yes
+#       name: system76-firmware-daemon.service
