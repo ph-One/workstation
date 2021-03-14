@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
+  become: true
   tasks:
   - name: install packages
     package:
@@ -10,7 +11,7 @@
     - zsh
     - joplin-desktop
     - vivaldi
-    - fish-shell
+    - fish-git
     - guake
     - podman
     - cowsay
