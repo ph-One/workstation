@@ -3,14 +3,12 @@
   tasks:
 
   - name: Install Paru Package Manager
-    package:
-      name: paru
-      state: present
+    shell: "pacman install paru"
+    become: yes
     
   - name: Install Development Packages
-    package:
-      name: base-devel
-      state: present
+    shell: "pacman install base-devel"
+    become: yes
   
   - name: Update System Packages
     shell: "paru -Syyu"
