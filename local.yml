@@ -34,6 +34,7 @@
       - firmware-manager
       - fish-git
       - flameshot
+      - gnome-tweaks
       - guake
       - htop
       - joplin-desktop
@@ -43,6 +44,7 @@
       - libvirt
       - nvidia-dkms
       - nvtop
+      - papirus-icon-theme
       - podman
       - rustup
       - telegram-desktop
