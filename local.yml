@@ -1,4 +1,4 @@
-1 ---
+---
 - hosts: all
   tasks:
   - name: install packages
