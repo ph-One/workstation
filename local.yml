@@ -2,6 +2,9 @@
 # https://sourceforge.net/projects/garuda-linux/files/gnome-barebones/210225/garuda-gnome-barebones-linux-lts-210225.iso
 - hosts: localhost
   tasks:
+  
+  - name: Initialize Log File
+    shell: "echo `date` > /tmp/instal.log"
 
   - name: Install Paru Package Manager
     shell: "yes '' | pacman -S {{ item }} | tee -a /tmp/install.log"
