@@ -27,6 +27,7 @@
   - name: Generate Package List
     set_fact:
       pkgList:
+      - arc-gtk-theme
       - bpytop
       - cbonsai
       - chromium
