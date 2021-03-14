@@ -2,11 +2,11 @@
 - hosts: localhost
   tasks:
   - name: install packages
-    command: yes | paru -S {{ item }}
+    command: yes | paru -S --skipreview {{ item }}
     with_items:
     - tmux
     - zsh
     - joplin-desktop
     - vivaldi
-    - visual-studio-code-insiders
     - guake
+    - podman
