@@ -2,7 +2,12 @@
 - hosts: localhost
   become: true
   tasks:
-  - name: install packages
+  - name: Install Paru
+    package:
+      name: paru
+      state: present
+    
+  - name: Install Packages
     command: "yes 'y' | paru -S --skipreview {{ item }}"
     with_items:
     - tmux
