@@ -33,7 +33,15 @@
       - vivaldi
       - fish-git
       - guake
-      - nvidia
+      - nvidia-dkms
+      - rustup
+      - telegram-desktop
+      - ttf-iosevka
+      - libvirt
+      - virt-manager
+      - vlc
+      - xdotool
+      - yq
       - podman
       - cowsay
       - firmware-manager
@@ -41,6 +49,12 @@
       - kubectl
       - visual-studio-code-insiders-bin
       - esanso-bin
+      - bpytop
+      - htop
+      - nvtop
+      - chromium
+      - flameshot
+      - jq
       sys76List:
       - sys76-kb
       - system76-apci-dkms
@@ -51,6 +65,7 @@
       - system76-kbd-led-git
       - system76-power
       smartCardReaderList:
+      - ccid
       - opensc
       - icaclient
       - pcsc-tools
@@ -80,3 +95,24 @@
       state: started
       enabled: yes
       name: pcscd.service
+
+  - name: Start and Enable System76 Power Service
+    become: yes
+    ansible.builtin.systemd:
+      state: started
+      enabled: yes
+      name: system76-power.service
+
+  - name: Start and Enable System76 Service
+    become: yes
+    ansible.builtin.systemd:
+      state: started
+      enabled: yes
+      name: system76
+
+  - name: Start and Enable System76 Firmware Deamin Service
+    become: yes
+    ansible.builtin.systemd:
+      state: started
+      enabled: yes
+      name: system76-firmware-daemon.service
