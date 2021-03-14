@@ -7,10 +7,16 @@
     package:
       name: paru
       state: present
+    
+  - name: Install Development Packages
+    package:
+      name: base-devel
+      state: present
 
   - name: Generate Package List
     set_fact:
       pkgList:
+      - cbonsai
       - tmux
       - zsh
       - joplin-desktop
