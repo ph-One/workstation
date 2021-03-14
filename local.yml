@@ -3,7 +3,7 @@
   tasks:
 
   - name: Install Paru Package Manager
-    shell: "pacman install -S {{ item }}"
+    shell: "yes '' | pacman -S {{ item }}"
     become: yes
     with_items:
     - paru
