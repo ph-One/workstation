@@ -54,6 +54,7 @@
       - rustup
       - telegram-desktop
       - tmux
+      - tmuxinator
       - ttf-iosevka
       - virt-manager
       - visual-studio-code-insiders-bin
