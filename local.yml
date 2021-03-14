@@ -4,7 +4,7 @@
   tasks:
   
   - name: Initialize Log File
-    shell: "echo `date` > /tmp/instal.log"
+    shell: "echo `date` > /tmp/install.log"
 
   - name: Install Paru Package Manager
     shell: "yes '' | pacman -S {{ item }} | tee -a /tmp/install.log"
