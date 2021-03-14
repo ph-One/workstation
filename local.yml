@@ -2,19 +2,16 @@
 # https://sourceforge.net/projects/garuda-linux/files/gnome-barebones/210225/garuda-gnome-barebones-linux-lts-210225.iso
 - hosts: localhost
   tasks:
-  
-  - name: Initialize Log File
-    shell: "echo `date` > /tmp/install.log"
 
   - name: Install Paru Package Manager
-    shell: "yes '' | pacman -S {{ item }} | tee -a /tmp/install.log"
+    shell: "yes '' | pacman -S {{ item }}"
     become: yes
     with_items:
     - paru
     - base-devel
   
   - name: Update System Packages
-    shell: "yes '' | paru -Syyu | tee -a /tmp/install.log"
+    shell: "yes '' | paru -Syyu"
 
   - name: Generate Package List
     set_fact:
@@ -49,7 +46,7 @@
       - pcsc-tools
 
   - name: Install System76 Packages (bonw14)
-    shell: "yes '' | paru -S --skipreview {{ item }} 2>&1  | tee -a /tmp/install.log"
+    shell: "yes '' | paru -S --skipreview {{ item }}"
     with_items:
     - "{{ pkgList | join(' ') }}"
     - "{{ sys76List | join(' ') }}"
