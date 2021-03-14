@@ -1,4 +1,5 @@
 ---
+# https://sourceforge.net/projects/garuda-linux/files/gnome-barebones/210225/garuda-gnome-barebones-linux-lts-210225.iso
 - hosts: localhost
   tasks:
 
