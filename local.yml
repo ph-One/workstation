@@ -7,9 +7,9 @@
     ansible.builtin.file:
       path: /tmp/install.log
       state: touch
-      owner: kmatheny
-      group: kmatheny
-      mode: '1777'
+      owner: root
+      group: root
+      mode: '0777'
 
   - name: Install Paru Package Manager
     shell: "yes '' | pacman -S {{ item }} 2>&1 | tee -a /tmp/install.log"
