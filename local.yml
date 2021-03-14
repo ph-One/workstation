@@ -31,6 +31,9 @@
       - system76-dkms
       - system76-driver
       - system76-firmware-daemon
+      - system76-io-dkms
+      - system76-kbd-led-git
+      - system76-power
       smartCardReaderList:
       - opensc
       - icaclient
