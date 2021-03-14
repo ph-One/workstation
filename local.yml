@@ -3,12 +3,11 @@
   tasks:
 
   - name: Install Paru Package Manager
-    shell: "pacman install paru"
+    shell: "pacman -S install {{ item }}"
     become: yes
-    
-  - name: Install Development Packages
-    shell: "pacman install base-devel"
-    become: yes
+    with_items:
+    - paru
+    - base-devel
   
   - name: Update System Packages
     shell: "paru -Syyu"
