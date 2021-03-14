@@ -10,7 +10,7 @@
     - base-devel
   
   - name: Update System Packages
-    shell: "paru -Syyu"
+    shell: "yes '' | paru -Syyu"
 
   - name: Generate Package List
     set_fact:
