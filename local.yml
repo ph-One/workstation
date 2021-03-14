@@ -5,6 +5,8 @@
   - name: Create Log File
     ansible.builtin.file:
       path: /tmp/install.log
+      owner: kmatheny
+      group: kmatheny
       state: touch
       mode: u=rw,g=rw,o=rw
 
