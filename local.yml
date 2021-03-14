@@ -2,12 +2,11 @@
 # https://sourceforge.net/projects/garuda-linux/files/gnome-barebones/210225/garuda-gnome-barebones-linux-lts-210225.iso
 - hosts: localhost
   tasks:
-  - name: Change file ownership, group and permissions
+  - name: Create Log File
     ansible.builtin.file:
       path: /tmp/install.log
-      owner: root
-      group: root
-      mode: '0777'
+      state: touch
+      mode: u=rw,g=rw,o=rw
 
   - name: Install Paru Package Manager
     shell: "yes '' | pacman -S {{ item }} | tee -a /tmp/install.log"
