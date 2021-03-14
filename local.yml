@@ -2,7 +2,9 @@
 - hosts: localhost
   tasks:
   - name: install packages
-    command: yes "" | paru -S --skipreview {{ item }}
+    package:
+      name: "{{ item }}"
+      state: present
     with_items:
     - tmux
     - zsh
