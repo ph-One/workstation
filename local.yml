@@ -1,0 +1,7 @@
+1 ---
+- hosts: all
+  tasks:
+  - name: install packages
+    command: paru -S {{ item }}
+    with_items:
+    - tmux
