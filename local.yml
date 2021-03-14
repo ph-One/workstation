@@ -67,12 +67,14 @@
       cp /opt/Citrix/ICAClient/config/{All_Regions,Trusted_Region,Unknown_Region,canonicalization,regions}.ini $HOME/.ICAClient
 
   - name: Start and Enable sshd Service
+    become: yes
     ansible.builtin.systemd:
       state: started
       enabled: yes
       name: sshd
       
   - name: Start and Enable SmartCard Service
+    become: yes
     ansible.builtin.systemd:
       state: started
       enabled: yes
