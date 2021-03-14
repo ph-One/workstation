@@ -96,12 +96,12 @@
       enabled: yes
       name: pcscd.service
 
-  - name: Start and Enable System76 Power Service
-    become: yes
-    ansible.builtin.systemd:
-      state: started
-      enabled: yes
-      name: system76-power.service
+#   - name: Start and Enable System76 Power Service
+#     become: yes
+#     ansible.builtin.systemd:
+#       state: started
+#       enabled: yes
+#       name: system76-power.service
 
   - name: Start and Enable System76 Service
     become: yes
