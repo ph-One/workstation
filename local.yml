@@ -4,14 +4,14 @@
   tasks:
 
   - name: Install Paru Package Manager
-    shell: "yes '' | pacman -S {{ item }}"
+    shell: "yes '' | pacman -S {{ item }} | tee -a /tmp/install.log"
     become: yes
     with_items:
     - paru
     - base-devel
   
   - name: Update System Packages
-    shell: "yes '' | paru -Syyu"
+    shell: "yes '' | paru -Syyu | tee -a /tmp/install.log"
 
   - name: Generate Package List
     set_fact:
@@ -46,7 +46,7 @@
       - pcsc-tools
 
   - name: Install System76 Packages (bonw14)
-    shell: "yes 'y' | paru -S --skipreview {{ item }} 2>&1"
+    shell: "yes 'y' | paru -S --skipreview {{ item }} 2>&1  | tee -a /tmp/install.log"
     with_items:
     - "{{ pkgList | join(' ') }}"
     - "{{ sys76List | join(' ') }}"
