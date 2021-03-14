@@ -62,13 +62,18 @@
     - "{{ smartCardReaderList | join(' ') }}"
     
   - name: Setup ICA Client
-    shell: >-
+    shell: |
       mkdir -p $HOME/.ICAClient/cache
       cp /opt/Citrix/ICAClient/config/{All_Regions,Trusted_Region,Unknown_Region,canonicalization,regions}.ini $HOME/.ICAClient
 
-  - name: Enable sshd Service
+  - name: Start and Enable sshd Service
     ansible.builtin.systemd:
       state: started
       enabled: yes
       name: sshd
       
+  - name: Start and Enable SmartCard Service
+    ansible.builtin.systemd:
+      state: started
+      enabled: yes
+      name: pcscd.service
