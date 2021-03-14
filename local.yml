@@ -27,35 +27,35 @@
   - name: Generate Package List
     set_fact:
       pkgList:
+      - bpytop
       - cbonsai
-      - tmux
-      - zsh
-      - joplin-desktop
-      - vivaldi
+      - chromium
+      - cowsay
+      - esanso-bin
+      - firmware-manager
       - fish-git
+      - flameshot
       - guake
+      - htop
+      - joplin-desktop
+      - jq
+      - kubectl
+      - libfirmware-manager
+      - libvirt
       - nvidia-dkms
+      - nvtop
+      - podman
       - rustup
       - telegram-desktop
+      - tmux
       - ttf-iosevka
-      - libvirt
       - virt-manager
+      - visual-studio-code-insiders-bin
+      - vivaldi
       - vlc
       - xdotool
       - yq
-      - podman
-      - cowsay
-      - firmware-manager
-      - libfirmware-manager
-      - kubectl
-      - visual-studio-code-insiders-bin
-      - esanso-bin
-      - bpytop
-      - htop
-      - nvtop
-      - chromium
-      - flameshot
-      - jq
+      - zsh
       sys76List:
       - sys76-kb
       - system76-apci-dkms
@@ -67,8 +67,8 @@
       - system76-power
       smartCardReaderList:
       - ccid
-      - opensc
       - icaclient
+      - opensc
       - pcsc-tools
 
   - name: Install System76 Packages (bonw14)
