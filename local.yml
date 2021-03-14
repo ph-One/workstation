@@ -1,9 +1,9 @@
 ---
 # https://sourceforge.net/projects/garuda-linux/files/gnome-barebones/210225/garuda-gnome-barebones-linux-lts-210225.iso
 - hosts: localhost
+  become: yes
   tasks:
   - name: Create Log File
-    become: yes
     ansible.builtin.file:
       path: /tmp/install.log
       owner: kmatheny
@@ -13,7 +13,6 @@
 
   - name: Install Paru Package Manager
     shell: "yes '' | pacman -S {{ item }} | tee -a /tmp/install.log"
-    become: yes
     with_items:
     - paru
     - base-devel
