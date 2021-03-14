@@ -3,9 +3,7 @@
   become: true
   tasks:
   - name: install packages
-    package:
-      name: "{{ item }}"
-      state: present
+    command: paru -S --skipreview {{ item }}
     with_items:
     - tmux
     - zsh
