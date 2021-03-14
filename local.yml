@@ -15,14 +15,14 @@
       mode: '0777'
 
   - name: Install Paru Package Manager
-    shell: "yes '' | pacman -S {{ item }} 2>&1 | tee -a /tmp/install.log"
+    shell: "yes '' | pacman -S --skipreview --needed {{ item }} 2>&1 | tee -a /tmp/install.log"
     become: yes
     with_items:
     - paru
     - base-devel
   
   - name: Update System Packages
-    shell: "yes '' | paru -Syyu 2>&1 | tee -a /tmp/install.log"
+    shell: "yes '' | paru -Syyu --skipreview --needed 2>&1 | tee -a /tmp/install.log"
 
   - name: Generate Package List
     set_fact:
@@ -79,7 +79,7 @@
       - pcsc-tools
 
   - name: Install System76 Packages (bonw14)
-    shell: "yes '' | paru -S --skipreview {{ item }} 2>&1 | tee -a /tmp/install.log"
+    shell: "yes '' | paru -S --needed --skipreview {{ item }} 2>&1 | tee -a /tmp/install.log"
     with_items:
     - "{{ pkgList | join(' ') }}"
     - "{{ sys76List | join(' ') }}"
