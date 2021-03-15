@@ -52,6 +52,7 @@
       - papirus-icon-theme
       - podman
       - rustup
+      - snapd
       - telegram-desktop
       - tmux
       - tmuxinator
