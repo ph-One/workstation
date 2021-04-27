@@ -14,12 +14,12 @@
       group: root
       mode: '0777'
 
-  - name: Install Paru Package Manager
-    shell: "yes '' | pacman -S --needed {{ item }} 2>&1 | tee -a /tmp/install.log"
-    become: yes
-    with_items:
-    - paru
-    - base-devel
+#   - name: Install Paru Package Manager
+#     shell: "yes '' | pacman -S --needed {{ item }} 2>&1 | tee -a /tmp/install.log"
+#     become: yes
+#     with_items:
+#     - paru
+#     - 
   
   - name: Update System Packages
     shell: "yes '' | paru -Syyu --skipreview --needed 2>&1 | tee -a /tmp/install.log"
@@ -27,6 +27,7 @@
   - name: Generate Package List
     set_fact:
       pkgList:
+      - base-devel
       - arc-gtk-theme
       - bpytop
       - cbonsai
