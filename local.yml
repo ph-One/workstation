@@ -28,65 +28,29 @@
     set_fact:
       pkgList:
       - base-devel
-      - arc-gtk-theme
-      - bpytop
-      - cbonsai
-      - chromium
+      - btop
       - esanso-bin
-      - firmware-manager
-      - fish-git
       - flameshot
-      - gnome-backgrounds
-      - gnome-backgrounds-bitday-git
-      - gnome-backgrounds-lakeside-git
-      - gnome-shell-extensions
-      - gnome-tweaks
       - guake
-      - htop
       - joplin-desktop
       - jq
       - kubectl
-      - libfirmware-manager
       - libvirt
       - nvidia-dkms
       - nvtop
-      - papirus-icon-theme
       - podman
-      - rustup
-      - snapd
-      - telegram-desktop
-      - tmux
-      - tmuxinator
-      - ttf-iosevka
       - virt-manager
       - visual-studio-code-insiders-bin
       - vivaldi
-      - vlc
-      - xdotool
       - yq
+      - zellij
       - zsh
-      sys76List:
-      - sys76-kb
-      - system76-apci-dkms
-      - system76-dkms
-      - system76-driver
-      - system76-firmware-daemon
-      - system76-io-dkms
-      - system76-kbd-led-git
-      - system76-power
       smartCardReaderList:
       - ccid
       - icaclient
       - opensc
       - pcsc-tools
 
-  - name: Install System76 Packages (bonw14)
-    shell: "yes '' | paru -S --needed --skipreview {{ item }} 2>&1 | tee -a /tmp/install.log"
-    with_items:
-    - "{{ pkgList | join(' ') }}"
-    - "{{ sys76List | join(' ') }}"
-    - "{{ smartCardReaderList | join(' ') }}"
-    
   - name: Setup ICA Client
     shell: |
       mkdir -p $HOME/.ICAClient/cache
@@ -105,24 +69,3 @@
       state: started
       enabled: yes
       name: pcscd.service
-
-#   - name: Start and Enable System76 Power Service
-#     become: yes
-#     ansible.builtin.systemd:
-#       state: started
-#       enabled: yes
-#       name: system76-power.service
-
-#   - name: Start and Enable System76 Service
-#     become: yes
-#     ansible.builtin.systemd:
-#       state: started
-#       enabled: yes
-#       name: system76
-
-#   - name: Start and Enable System76 Firmware Deamin Service
-#     become: yes
-#     ansible.builtin.systemd:
-#       state: started
-#       enabled: yes
-#       name: system76-firmware-daemon.service
