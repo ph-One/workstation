@@ -75,3 +75,10 @@
       state: started
       enabled: yes
       name: pcscd.service
+
+  - name: Start and Enable LibVirtD Service
+    become: yes
+    ansible.builtin.systemd:
+      state: started
+      enabled: yes
+      name: libvirtd
