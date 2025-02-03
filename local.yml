@@ -56,6 +56,12 @@
       mkdir -p $HOME/.ICAClient/cache
       cp /opt/Citrix/ICAClient/config/{All_Regions,Trusted_Region,Unknown_Region,canonicalization,regions}.ini $HOME/.ICAClient
 
+  - name: Install Packages
+    shell: "yes '' | paru -S --needed --skipreview {{ item }} 2>&1 | tee -a /tmp/install.log"
+    with_items:
+    - "{{ pkgList | join(' ') }}"
+    - "{{ smartCardReaderList | join(' ') }}"
+
   - name: Start and Enable sshd Service
     become: yes
     ansible.builtin.systemd:
